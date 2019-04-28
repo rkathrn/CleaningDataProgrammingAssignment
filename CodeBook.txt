@@ -1,0 +1,41 @@
+Codebook - Variable Selection 
+=================
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 'Time' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (Time.Body.Acc.Jerk-XYZ and Time.Body.Gyro.Jerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (Time.Body.Acc.Mag, Time.Gravity.Acc.Mag, Time.Body.Acc.Jerk.Mag, Time.Body.Gyro.Mag, Time.Body.Gyro.Jerk.Mag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing Freq.Body.Acc-XYZ, Freq.Body.Acc.Jerk-XYZ, Freq.Body.Gyro-XYZ, Freq.Body.Acc.Jerk.Mag, Freq.Body.Gyro.Mag, Freq.Body.Gyro.Jerk.Mag. (Note the 'Freq' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+
+Calculated Variables included in Tidy Dataset:
+
+Time.Body.Acc-XYZ
+Time.Gravity.Acc-XYZ
+Time.Body.Acc.Jerk-XYZ
+Time.Body.Gyro-XYZ
+Time.Body.Gyro.Jerk-XYZ
+Time.Body.Acc.Mag
+Time.Gravity.Acc.Mag
+Time.Body.Acc.Jerk.Mag
+Time.Body.Gyro.Mag
+Time.Body.Gyro.Jerk.Mag
+Freq.Body.Acc-XYZ
+Freq.Body.Acc.Jerk-XYZ
+Freq.Body.Gyro-XYZ
+Freq.Body.Acc.Mag
+Freq.Body.Acc.Jerk.Mag
+Freq.Body.Gyro.Mag
+Freq.Body.Gyro.Jerk.Mag
+
+
+The set of variables that were estimated from these signals and extracted from the original dataset are: 
+
+Mean(): Mean value
+StdDeviation(): Standard deviation
+
+NB: The original dataset included many more variables estimated from the raw signals beyond just the mean and standard deviation, but for the purposes of this manipulation only those variables were needed.
+
