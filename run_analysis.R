@@ -70,5 +70,5 @@
         rm(smaller)
         head(tidy)
         
-##pull up final tidy set
-        View(tidy)
+##write tidy dataset out of R
+        write.table(tidy, file = "tidydata.txt", sep="", row.name = FALSE)
