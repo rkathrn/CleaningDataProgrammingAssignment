@@ -93,6 +93,7 @@ For each record it is provided:
 - Freq.Body.Gyro.Jerk.Magnitude.Mean()        
 - Freq.Body.Gyro.Jerk.Magnitude.StdDeviation()
 
+
 The dataset includes the following files:
 =========================================
 
@@ -100,19 +101,31 @@ The dataset includes the following files:
 
 - ‘CodeBook.txt’
 
-- ‘run_analysis.R’ : R script modifying the contents of this repo into a combined, tidy dataset
+- ‘run_analysis.R’ : R script modifying the contents of this repo into a combined, tidy dataset, through the following steps:
 
-- ‘subject_test.txt’ : Each row identifies the subject who performed the activity for each window sample. 
+	1. downloading the full .zip dataset and unzipping the file into the working directory
 
-- ‘subject_train.txt’ : Each row identifies the subject who performed the activity for each window sample. 
+	2. reading the data in disparate txt files (subject ID, activity description, raw signals) into corresponding R objects using read.table()
 
-- ‘X_test.txt’
+	3. creating character string for the combined dataset (including Subject ID and Activity Label as well as the calculated data already labeled)
 
-- ‘X_train.txt’
+	4. using cbind() to bind the subject ID, activity, and calculations into datasets corresponding to the train and test sets, and renaming the columns
 
-- ‘y_test.txt’
+	5. using rbind() to combine the amalgamated test and train data frames into a comprehensive single data frame 
 
-- ‘y_train.txt’
+	6. using subsetting functionality to extract only the columns that identify subject, activity, and the mean and standard deviation calculations for each measurement
+
+	7. for clarity's sake, using rm() on the r objects storing the incremental stages of the process -- e.g. the original set of r objects, the separate train and test data frames, and the un-subsetted master data frame -- leaving only the version with the mean and standard deviation variables
+
+	8. using gsub() to apply more descriptive activity names for each observation, as well as more descriptive/legible variable names
+
+	9.using group_by() and summarize_all() functions together to create tidy dataset that includes average for each activity (of six) as performed by each individual subject (coming out to 180 observations/rows
+
+	10. using rm() again to delete the r object with untidy data
+
+	11. using write.table() to export the 'tidy' data frame into a txt file in the working directory called 'tidydata.txt'
+
+
 
 Notes: 
 ======
